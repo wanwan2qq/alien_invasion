@@ -10,7 +10,8 @@ class Ship(Sprite):
         self.ai_settings = ai_settings
 
         # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load('/Users/zhoupeijun/Documents/Python/PythonCC/alien_invasion/images/ship.bmp')
+        self.image = pygame.image.load('/Users/zhoupeijun/Documents/Python/PythonCC/alien_invasion/images/ship_1x.png').convert_alpha()
+        
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
@@ -24,6 +25,9 @@ class Ship(Sprite):
         # 移动标志
         self.moving_right = False
         self.moving_left = False
+
+        # 射击状态
+        self.shit = False
 
     def update(self):
         """根据移动标志调整飞船的位置"""

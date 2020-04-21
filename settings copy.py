@@ -16,7 +16,7 @@ class Settings():
         self.ship_limit = 3
 
         # 子弹设置
-        self.bullet_color = 255, 222, 173
+        # self.bullet_color = 255, 222, 173
         
 
         # 外星人设置
@@ -34,8 +34,8 @@ class Settings():
         self.ship_speed_factor = 20.5
 
         self.bullet_speed_factor = 20
-        self.bullet_width = 3
-        self.bullet_height = 15
+        # self.bullet_width = 3
+        # self.bullet_height = 15
         self.bulles_allowed = 6
 
         self.alien_speed_factor = 5
@@ -49,8 +49,8 @@ class Settings():
         self.ship_speed_factor *= self.speedup_scale
 
         self.bullet_speed_factor *= self.speedup_scale
-        self.bullet_width *= self.speedup_scale
-        self.bullet_height *= self.speedup_scale
+        # self.bullet_width *= self.speedup_scale
+        # self.bullet_height *= self.speedup_scale
         self.bulles_allowed += 2
 
         self.alien_speed_factor *= (self.speedup_scale * 1.1)

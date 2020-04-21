@@ -21,7 +21,7 @@ def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens,
             ef.check_keydown_events(event, ai_settings, screen, ship, bullets)
 
         elif event.type == pygame.KEYUP:
-            ef.check_keyup_events(event, ship)
+            ef.check_keyup_events(event, ai_settings, screen, ship, bullets)
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -31,7 +31,7 @@ def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens,
 # 更新屏幕
 def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button):
     # 每次循环时都重绘屏幕
-    screen.fill(ai_settings.bg_color)
+    screen.blit(ai_settings.image, (0,0))
     # 在飞船和外星人后面重绘所有子弹
     for bullet in bullets.sprites():
         bullet.draw_bullet()
@@ -75,3 +75,10 @@ def update_aliens(ai_settings, stats, sb, screen, ship, aliens, bullets):
 
     # 检查是否有外星人达到屏幕底端
     af.check_aliens_bottom(ai_settings, stats, sb, screen, ship, aliens, bullets)
+
+def fire_bullet(ai_settings, screen, ship, bullets):
+    """如果还没有达到限制，就发射一颗子弹"""
+    # 创建一颗子弹，并将其加入到编组bullets中
+    if ship.shit and (len(bullets) < ai_settings.bulles_allowed):
+        new_bullet = Bullet(ai_settings, screen, ship)
+        bullets.add(new_bullet)
